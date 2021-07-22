@@ -1,0 +1,46 @@
+<div class="row" style="padding: 0px;">
+    <div class="col m6" style="padding: 0px;">
+      <img src="../../assets/img/wallpaper.jpeg" style="width: 100%; height: 100vh;" alt="">
+    </div>
+    <div class="col m6" style="padding: 0px;background-color: whitesmoke;height: 100vh;">
+      <div class="container">
+        <div class="row">
+          <div class="col m12" style="margin-top: 99px;">
+            <h5 style="font-weight: bolder;">Register</h5>
+            <hr>
+            <p>
+              <em>
+              Hi,Let get you registered ...
+  
+              </em>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+            <div class="input-field col m12">
+                <input  id="first_name" type="text" class="validate" [(ngModel)]="name">
+                <label for="first_name">Full Name</label>
+              </div>
+              <div class="input-field col m6">
+                <input  id="first_name" type="text" class="validate" [(ngModel)]="idCrad">
+                <label for="first_name">ID card number</label>
+              </div>
+              <div class="input-field col m6">
+                <input  id="first_name" type="text" class="validate" [(ngModel)]="email">
+                <label for="first_name">Email</label>
+              </div>
+              <div class="input-field col m12">
+                <input  id="first_name" type="text" class="validate" [(ngModel)]="contactNum">
+                <label for="first_name">Contact number</label>
+              </div>
+              <div class="input-field col m12">
+                <input  id="first_name" type="text" class="validate" [(ngModel)]="password">
+                <label for="first_name">Password</label>
+              </div>
+          <div class="col m12 form-control" style="margin-top: 20px;">
+           <button class="btn #00c853 green accent-4" (click)=regUser()>Registere</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

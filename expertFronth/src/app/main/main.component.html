@@ -1,0 +1,35 @@
+<div class="row" style="padding: 0px;">
+  <div class="col m6" style="padding: 0px;height: 100vh;">
+    <img class="hide-on-small-only" src="../../assets/img/wallpaper.jpeg" style="width: 100%; height: 100vh;" alt="">
+  </div>
+  <div class="col m6" style="padding: 0px;  ">
+    <div class="container">
+      <div class="row">
+        <div class="col m12" style="margin-top: 134px;">
+          <h5 style="font-weight: bolder;">Login</h5>
+          <hr>
+          <p>
+            <em>
+              Welcome to Expertgloable Client Log in Portal
+
+            </em>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col m12  s12 form-control">
+          <input type="text" placeholder="id card" [(ngModel)]="userName">
+        </div>
+        <div class="col m12 s12 form-control">
+          <input type="password" placeholder="password" [(ngModel)]="password">
+        </div>
+        <div class="col m12  s12 form-control" style="margin-top: 20px;">
+         <button class="btn #00c853 green accent-4" (click)="login()">login</button>
+         &nbsp;
+         <span style="font-weight: bold;color: rgb(51, 178, 228);">Forgot password</span>
+         <h6>Note a member? <a routerLink="register"> <span style="color:rgb(51, 178, 228) ;">get registered</span></a> </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

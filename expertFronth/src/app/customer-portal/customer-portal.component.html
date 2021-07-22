@@ -1,0 +1,68 @@
+<div class="row" >
+    <div class="col m2" style="height: 100;position: absolute; background-color: #eceaea">
+        <div class="row">
+            <div class="col m12">
+                <i class="medium material-icons" style="vertical-align: bottom">person_pin</i>
+                <span>{{name}}</span>
+                <hr />
+                <div class="collection">
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">list</i>Dash Board</a>
+                    <a routerLink="inquery" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Inqueries</a>
+                </div>
+                <div class="collection">
+                    <h6>Stock</h6>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">list</i>Items</a>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Price List</a>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Inventory</a>
+                </div>
+                <div class="collection">
+                    <h6>Contacts</h6>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">list</i>Vendors</a>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Contacts</a>
+                </div>
+                <div class="collection">
+                    <h6>Sales</h6>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">list</i>Estimate</a>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Retainer Invoive</a>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Sales Order</a>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Invoices</a>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Delivery Notes</a>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Reports</a>
+                </div>
+                <div class="collection">
+                    <h6>Admin</h6>
+                    <a routerLink="customer-reg" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">list</i>Customer registration</a>
+                    <a routerLink="staff-managment" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Staff Managment</a>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Sales Order</a>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Invoices</a>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Delivery Notes</a>
+                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Reports</a>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+    <div class="col m10" style="height: 100;position: absolute;left: 236px;top:5px;padding-left: 20px;"  >
+       
+        <router-outlet></router-outlet>
+    </div>
+</div>

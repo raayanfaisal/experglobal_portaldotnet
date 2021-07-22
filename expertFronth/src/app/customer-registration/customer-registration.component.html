@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col m12">
+        <h5>Customer registration</h5>
+        <hr>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col m8">
+        <div class="row">
+            <div class="col m12">
+                <h6 style="font-weight: bolder;">Pending Customer registrations</h6>
+               <input class="input-field" placeholder="enter id card to filter" type="text">
+                <table>
+                    <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th>ID card</th>
+                          <th>Contact Number</th>
+                          <th>Email</th>
+                          <th>Varify</th>
+                      </tr>
+                    </thead>
+            
+                    <tbody>
+                      <tr *ngFor = "let x of collection | paginate: { itemsPerPage: 10, currentPage: p }">
+                        <td>{{x.fullName}}</td>
+                        <td>{{x.idCard}}</td>
+                        <td>{{x.cNumber}}</td>
+                        <td>{{x.email}}</td>
+                        <td><button (click)="acceptReg($event)" id="{{x.id}}" class="btn #f06292 pink #e91e63 pink waves-effect waves-ligh" >  <i  id="{{x.id}}" class="material-icons">check</i></button></td>
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                        
+            </div>
+        </div>
+    </div>
+    <div class="col m4 z-depth-2">
+        <h6>Forgot password request</h6>
+        <table>
+            <thead>
+              <tr>
+                 
+                  <th>Contact Number</th>
+                  <th>Email</th>
+               <th></th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <tr *ngFor = "let x of collection | paginate: { itemsPerPage: 10, currentPage: p }">
+                <td>{{x.fullName}}</td>
+                <td>{{x.idCard}}</td>
+              
+                <td><button class="btn">varify</button></td>
+              </tr>
+             
+            </tbody>
+          </table>
+                
+    </div>
+</div>
