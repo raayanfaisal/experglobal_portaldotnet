@@ -7730,7 +7730,7 @@
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/abdulmunnim/.nuget/NuGet/NuGet.Config"
+        "/Users/abdulmunnim/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
