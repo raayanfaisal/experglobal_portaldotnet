@@ -1,52 +1,173 @@
 <div class="row">
-    <div class="col m12">
-        <h5>Inqueries</h5>
+  <div class="col m12">
+    <h5>Inqueries</h5>
 
-        <hr>
-        <button class="btn  modal-trigger" href="#modal1" style="position: absolute; top: 10px;right: 10px;">+</button>
-    </div>
+    <hr />
+    <button
+      class="btn #fafafa grey waves-effect modal-trigger"
+      href="#modal1"
+      style="position: absolute; top: 10px; right: 10px"
+    >
+      <i style="vertical-align: bottom" class="material-icons">add</i>New
+      inquery
+    </button>
+  </div>
 </div>
 <div class="row">
-    <div class="col m12">
-        <table>
-            <thead>
-              <tr>
-                  <th>InQ Id</th>
-                  <th>Customer IDcard</th>
-                  <th>Customer Name</th>
-                  <th>Disription</th>
-                  <th>Catogaries</th>
-                  <th>Date</th>
-                  <th>Assign To</th>
-                  <th>Cus Status</th>
-                  <th>Inq Status</th>
-                  <th>Action</th>
-              </tr>
-            </thead>
-    
-            <tbody>
-              <tr></tr>
-         
-             
-            </tbody>
-          </table>
-    </div>
+  <div class="col m12">
+    <table>
+      <thead>
+        <tr>
+          <th>InQ Id</th>
+          <th>Customer IDcard</th>
+          <th>Customer Name</th>
+          <th>Disription</th>
+          <th>Catogaries</th>
+          <th>Date</th>
+          <th>Assign To</th>
+          <th>Cus Status</th>
+          <th>Inq Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h5>Add Inquery</h5>
-      <hr>
-     <div class="row">
-         <div class="col s12">
-             <label for="">
-                 Discription
-             </label>
-             <textarea   class="materialize-textarea" cols="30" rows="10"></textarea>
-         </div>
-     </div>
-    </div>
-    <div class="modal-footer">
-      <button href="#!" class=" btn modal-close waves-effect waves-green #a1887f brown lighten-2">Submit</button>
+<!-- Modal Structure -->
+<div id="modal1" class="modal" style=" padding-right: 41px;padding-left: 41px;">
+  <div class="modal-content">
+    <h5>New Inquery</h5>
+    <hr />
+    <div class="row">
+      <div class="col s4">
+        
+        <input placeholder="Inquery ID"
+          [(ngModel)]="discription"
+     
+          type="text"
+        />
+      </div>
+      <div class="col s4">
+     
+        <input
+        placeholder="Customer ID "
+          [(ngModel)]="discription"
+    
+          type="text"
+        />
+      </div>
+      <div class="col s4">
+       
+        <input
+        placeholder="Date"
+          [(ngModel)]="discription"
+      type="date"
+        />
+      </div>
+      <div class="col s12">
+       
+        <input
+        placeholder="Customer"
+          [(ngModel)]="discription"
+       
+          type="text"
+        />
+      </div>
+      <div class="col s12">
+   
+        <input
+        placeholder="Name"
+          [(ngModel)]="discription"
+      
+          type="text"
+        />
+      </div>
+      <div class="col s12">
+       
+        <input
+        placeholder="Address"
+          [(ngModel)]="discription"
+         
+          type="text"
+        />
+      </div>
+      <div class="col s6">
+      
+        <input
+        placeholder="Contect Email"
+          [(ngModel)]="discription"
+        
+          type="text"
+        />
+      </div>
+      <div class="col s6">
+        
+        <input
+        placeholder="Contact Number "
+          [(ngModel)]="discription"
+       
+          type="text"
+        />
+      </div>
+      <div class="col s12">
+        
+        <input
+        placeholder="Assignee"
+          [(ngModel)]="discription"
+     
+        
+          type="text"
+        />
+      </div>
+      <div class="col s12">
+      
+        <input
+        placeholder="Discription"
+          [(ngModel)]="discription"
+       
+          type="text"
+        />
+      </div>
+      <div class="col m12">
+        <button class="btn #fafafa grey waves-effect modal-trigger">Gurdening Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Chemical Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Laundary Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Watersports Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Construction Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Indoor sports Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Watersports Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Enginering Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Lighting Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Kichen Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">F & B Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Festival Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Liner Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Refrigination Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Plumbing Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Outdoor sports Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">IT Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Painting Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Watersports Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Watersports Items</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Room & Home Appliance</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">FUrnitur & Fittings</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">FUrnitur & Fittings</button>
+        <button class="btn #fafafa grey waves-effect modal-trigger">Power Tools</button>
+
+      </div>
     </div>
   </div>
+  <div class="modal-footer">
+    <button
+      href="#!"
+      class="btn modal-close waves-effect waves-green #a1887f brown lighten-2"
+      (click)="postNewInqu()"
+    >
+      Submit
+    </button>
+  </div>
+</div>

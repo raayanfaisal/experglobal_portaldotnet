@@ -8,6 +8,7 @@ namespace expertglobal.Model
         public string Token { get; set; }
         public DateTime Exp { get; set; }
         public string User { get; set; }
+        public string IDcard { get; set; }
         public List<String> Roles { get; set; }
     }
 }

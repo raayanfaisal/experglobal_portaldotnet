@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col m12">
+    <h5>Vendor</h5>
+
+    <hr />
+    <button
+      class="btn #fafafa grey waves-effect modal-trigger"
+      href="#modal1"
+      style="position: absolute; top: 10px; right: 10px"
+    >
+      <i style="vertical-align: bottom" class="material-icons">add</i>New vendor
+    </button>
+  </div>
+</div>
+<div class="col m12">
+  <table class="striped highlight">    
+    <thead>
+      <tr>
+        <th>Inquery ID</th>
+        <th>Company</th>
+        <th>Department</th>
+        <th>Name</th>
+        <th>Contact Email</th>
+        <th>Contact Number</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr
+        *ngFor="
+          let x of collection | paginate: { itemsPerPage: 10, currentPage: p }
+        "
+      >
+        <td>{{ x.oldKey }}</td>
+        <td>{{ x.company }}</td>
+        <td>{{ x.department }}</td>
+        <td>{{ x.name }}</td>
+        <td>{{ x.email }}</td>
+        <td>{{ x.contactNumber }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal" style="padding-right: 41px; padding-left: 41px">
+  <div class="modal-content">
+    <h5>
+      <i class="material-icons" style="vertical-align: bottom">business</i> New
+      Vendor
+    </h5>
+    <hr />
+    <div class="row">
+      <div class="col s12">
+        <input [(ngModel)]="vendorId" placeholder="Inquery ID " type="text" />
+      </div>
+      <div class="col s12">
+        <input placeholder="company" [(ngModel)]="company" type="text" />
+      </div>
+      <div class="col s12">
+        <input placeholder="Department" [(ngModel)]="department" type="text" />
+      </div>
+      <div class="col s12">
+        <input placeholder="Name" [(ngModel)]="name" type="text" />
+      </div>
+      <div class="col s6">
+        <input placeholder="Contact Email" [(ngModel)]="email" type="text" />
+      </div>
+      <div class="col s6">
+        <input placeholder="Contact Number" [(ngModel)]="number" type="text" />
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      href="#!"
+      class="btn modal-close waves-effect #9e9e9e grey"
+      (click)="registerVendor()"
+    >
+      Submit
+    </button>
+  </div>
+</div>

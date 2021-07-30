@@ -1,18 +1,26 @@
 <div class="row" >
-    <div class="col m2" style="height: 100;position: absolute; background-color: #eceaea">
-        <div class="row">
-            <div class="col m12">
-                <i class="medium material-icons" style="vertical-align: bottom">person_pin</i>
-                <span>{{name}}</span>
+    <div class="col m2" style="height: 100vh;position: absolute; background-color: #0f0c0c">
+        <div class="row" style="height: 100%;overflow-y: scroll;padding: 0px;">
+            <div class="col m12" style="background-color: #eae7e7;">
+                <h6>
+                    ExperGlobal
+
+                </h6>
+            </div>
+            <div style="padding: 10px;">
+             
+                <i class="medium material-icons" style="vertical-align: bottom ;color: whitesmoke;">person_pin</i>
+                <span style="color: whitesmoke;">{{name}}</span>
                 <hr />
                 <div class="collection">
-                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
-                        <i class="material-icons" style="vertical-align: bottom">list</i>Dash Board</a>
+                    <!-- <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                        <i class="material-icons" style="vertical-align: bottom">list</i>Dash Board</a> -->
                     <a routerLink="inquery" class="collection-item" style="color: gray">
                         <i class="material-icons" style="vertical-align: bottom">art_track</i>Inqueries</a>
                 </div>
-                <div class="collection">
+                <div class="collection" *ngIf = "staff">
                     <h6>Stock</h6>
+                    <hr>
                     <a routerLink="/customer-portal" class="collection-item" style="color: gray">
                         <i class="material-icons" style="vertical-align: bottom">list</i>Items</a>
                     <a routerLink="/customer-portal" class="collection-item" style="color: gray">
@@ -22,13 +30,15 @@
                 </div>
                 <div class="collection">
                     <h6>Contacts</h6>
-                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                    <hr>
+                    <a routerLink="vendor" class="collection-item" style="color: gray">
                         <i class="material-icons" style="vertical-align: bottom">list</i>Vendors</a>
-                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
+                    <a routerLink="client" class="collection-item" style="color: gray">
                         <i class="material-icons" style="vertical-align: bottom">art_track</i>Contacts</a>
                 </div>
-                <div class="collection">
+                <div class="collection" *ngIf = "staff">
                     <h6>Sales</h6>
+                    <hr>
                     <a routerLink="/customer-portal" class="collection-item" style="color: gray">
                         <i class="material-icons" style="vertical-align: bottom">list</i>Estimate</a>
                     <a routerLink="/customer-portal" class="collection-item" style="color: gray">
@@ -42,20 +52,21 @@
                     <a routerLink="/customer-portal" class="collection-item" style="color: gray">
                         <i class="material-icons" style="vertical-align: bottom">art_track</i>Reports</a>
                 </div>
-                <div class="collection">
+                <div class="collection" *ngIf = "admin">
                     <h6>Admin</h6>
+                    <hr>
                     <a routerLink="customer-reg" class="collection-item" style="color: gray">
                         <i class="material-icons" style="vertical-align: bottom">list</i>Customer registration</a>
                     <a routerLink="staff-managment" class="collection-item" style="color: gray">
                         <i class="material-icons" style="vertical-align: bottom">art_track</i>Staff Managment</a>
                     <a routerLink="/customer-portal" class="collection-item" style="color: gray">
-                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Sales Order</a>
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Audit Log</a>
+                  
+                </div>
+                <div class="collection" >
+                    
                     <a routerLink="/customer-portal" class="collection-item" style="color: gray">
-                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Invoices</a>
-                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
-                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Delivery Notes</a>
-                    <a routerLink="/customer-portal" class="collection-item" style="color: gray">
-                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Reports</a>
+                        <i class="material-icons" style="vertical-align: bottom">art_track</i>Logout</a>
                 </div>
             </div>
         </div>

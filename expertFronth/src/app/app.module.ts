@@ -25,6 +25,10 @@ import { StaffManagmentComponent } from './staff-managment/staff-managment.compo
 import {NgxPaginationModule} from 'ngx-pagination';
 import { InqueryComponent } from './inquery/inquery.component';
 import { LoginService } from './login.service';
+import { InqueriesService } from './inqueries.service';
+import { VendorComponent } from './vendor/vendor.component';
+import { VendorService } from './vendor.service';
+import { ClientComponent } from './client/client.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +48,8 @@ import { LoginService } from './login.service';
     CustomerRegistrationComponent,
     StaffManagmentComponent,
     InqueryComponent,
+    VendorComponent,
+    ClientComponent,
     
   ],
   imports: [
@@ -57,7 +63,9 @@ import { LoginService } from './login.service';
   providers: [
     UrlLinkService,
     RegistrationService,
-    LoginService
+    LoginService,
+    InqueriesService,
+    VendorService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,37 +1,87 @@
 <div class="row">
-    <div class="col m12">
-        <h6>Staff Managment</h6>
-        <hr>
+  <div class="col m12">
+    <h6>Staff Managment</h6>
+    <hr />
+    <button
+      class="btn modal-trigger"
+      href="#modal1"
+      style="position: absolute; right: 20px; top: -3px"
+    >
+      +
+    </button>
+  </div>
+  <div class="col m12">
+    <table class="striped hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Full Name</th>
+          <th>Roles</th>
+      
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor = "let x of collection | paginate: { itemsPerPage: 10, currentPage: p }">
+          <td>{{x.userName}}</td>
+          <td>{{x.fullName}}</td>
+          <td>
+            <span *ngFor ="let y of x.roles">{{y}},
+            </span>
+          </td>
+          <td>
+            {{x.email}}
+          </td>
+        <td><button class="" (click)="deletUser()">X</button><button class="">updated</button></td>
+         
+        </tr>
+        
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal" style="width: 526px; border-radius: 15px;padding: 10px;">
+  <div class="modal-content">
+    <h5>Add Staff</h5>
+    <hr />
+    <div class="row">
+      <div class="col m6 input-field">
+        <label for=""> user name <em>(no space)</em></label>
+        <input type="text" [(ngModel)]="userName" />
+      </div>
+      <div class="col m6 input-field">
+        <label for=""> full name </label>
+        <input type="text" [(ngModel)]="fullName" />
+      </div>
+      <div class="col m6 input-field">
+        <label for=""> password <em>(8 characters)</em> </label>
+        <input type="text" [(ngModel)]="password" />
+      </div>
+      <div class="col m6 input-field">
+        <label for=""> Email</label>
+        <input type="text" [(ngModel)]="email" />
+      </div>
+      <div class="col m6 ">
+        <label for=""> roles </label>
+        <select multiple class="browser-default" style="height: 73px;" [(ngModel)]="roles">
+          <option value="Admin">Admin</option>
+          <option value="Staffs">Staff</option>
+          <option value="client">client</option>
+        </select>
+      </div>
     </div>
-    <div class="col m12">
-        <table>
-            <thead>
-              <tr>
-                  <th>Name</th>
-                  <th>Roles</th>
-                  <th>Contact Number</th>
-                  <th>Email</th>
-                  <th></th>
-              </tr>
-            </thead>
-    
-            <tbody>
-              <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-              </tr>
-              <tr>
-                <td>Alan</td>
-                <td>Jellybean</td>
-                <td>$3.76</td>
-              </tr>
-              <tr>
-                <td>Jonathan</td>
-                <td>Lollipop</td>
-                <td>$7.00</td>
-              </tr>
-            </tbody>
-          </table>
-    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+    (click)="regUser()"
+      href="#!"
+      class="btn modal-close waves-effect waves-green #a1887f brown lighten-2"
+    >
+      Add user
+    </button>
+  </div>
 </div>

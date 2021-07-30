@@ -5,11 +5,11 @@ using expertglobal.Model;
 
 namespace expertglobal.Services
 {
-    public class InqueryService: InqueryInterface
+    public class InqueryService : InqueryInterface
     {
         private readonly DataDbContext _db;
 
-        public InqueryService (DataDbContext _db)
+        public InqueryService(DataDbContext _db)
         {
             this._db = _db;
         }
@@ -36,7 +36,7 @@ namespace expertglobal.Services
         {
             try
             {
-                return _db.Inqueries.OrderByDescending(x=>x.Id).ToList();
+                return _db.Inqueries.OrderByDescending(x => x.Id).ToList();
             }
             catch (Exception ex)
             {
@@ -61,6 +61,17 @@ namespace expertglobal.Services
             try
             {
                 _db.Inqueries.Add(value);
+                _db.SaveChanges();
+                var auditLog = new AuditLog
+                {
+                    Action = $"inquery created by {value.CustomerName} ,idcard {value.IDard}, on {DateTime.Now.ToShortDateString()}" +
+                     $"at {DateTime.Now.ToShortTimeString()}",
+                    Date = DateTime.Now,
+                    Staff = value.CustomerName,
+                    Task = "inquery generating"
+                };
+                _db.AuditLogs.Add(auditLog);
+
                 _db.SaveChanges();
             }
             catch (Exception ex)

@@ -2981,7 +2981,7 @@ table {
 }
 
 table.striped tr {
-  border-bottom: none;
+ 
 }
 
 table.striped > tbody > tr:nth-child(odd) {
@@ -3079,19 +3079,20 @@ td, th {
 }
 
 .collection {
+  color: whitesmoke;
   margin: 0.5rem 0 1rem 0;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #0f0c0c;
   border-radius: 2px;
   overflow: hidden;
   position: relative;
 }
 
 .collection .collection-item {
-  background-color: #fff;
+  background-color: rgb(14, 12, 12);
   line-height: 1.5rem;
-  padding: 10px 20px;
+  padding: 3px ;
   margin: 0;
-  border-bottom: 1px solid #e0e0e0;
+  
 }
 
 .collection .collection-item.avatar {
@@ -3471,7 +3472,7 @@ table span.badge {
 .row {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
+  
 }
 
 .row:after {
@@ -8486,10 +8487,19 @@ input[type=range]::-ms-thumb {
   visibility: visible;
   -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
           animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-  -webkit-transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
 }
 
 .tap-target {
@@ -8542,10 +8552,19 @@ input[type=range]::-ms-thumb {
 
 .tap-target-wave::after {
   visibility: hidden;
-  -webkit-transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s;
-  transition: opacity .3s, transform .3s, visibility 0s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s,
+ -webkit-transform .3s;
   z-index: -1;
 }
 

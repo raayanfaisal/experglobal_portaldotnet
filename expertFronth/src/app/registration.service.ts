@@ -18,4 +18,13 @@ export class RegistrationService {
   acceptClientReg(data:number){
     return this.http.get(`${this.url.link}admin/accept-client-reg/${data}`);
   }
+  chekExist(data:string){
+    return this.http.get(`${this.url.link}CustomerReg/chek/${data}`);
+  }
+  regUser(data){
+    return this.http.post(`${this.url.link}admin/register-user`,data);
+  }
+  getAlluser(){
+    return this.http.get(`${this.url.link}admin/get-user`);
+  }
 }

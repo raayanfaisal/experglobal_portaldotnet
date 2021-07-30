@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using expertglobal.Data;
+using expertglobal.Model;
 using expertglobal.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -31,12 +32,12 @@ namespace expertglobal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = "server=localhost;user=root;database=expert";
+            var connectionString = "server=localhost;user=root;database=expert;password=)g9:89KX/qq+3[jC";
             services.AddControllers()
                  .AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<DataDbContext>().AddDefaultTokenProviders();
+            services.AddIdentity<UserBio, IdentityRole>().AddEntityFrameworkStores<DataDbContext>().AddDefaultTokenProviders();
             services.AddAuthentication(
                 options =>
                 {
@@ -69,6 +70,7 @@ namespace expertglobal
             services.AddTransient<AuthClientInterface, CleintManageService>();
             services.AddTransient<InqueryInterface, InqueryService>();
             services.AddTransient<SecurityInterface, AutherUserService>();
+            services.AddTransient<VendorInterface, VendorService>();
             services.AddCors();
 
         }

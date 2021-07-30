@@ -26,6 +26,8 @@ export class CustomerRegistrationComponent implements OnInit {
         this.regsiService.getRegRequest().subscribe((data: any) => {
           console.log(data);
           this.collection = data.data;
+        },(err:any)=>{
+          M.toast({ html: 'cleint registration was not sucessfully!' });
         });
       });
   }

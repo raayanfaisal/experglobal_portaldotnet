@@ -10,6 +10,10 @@ namespace expertglobal.Services
         void Post(OnlineClientReg value);
         void Delete(int id);
         object Get(int id);
-        Task <object> Approve(int id);
+        Task<bool> RegUser(User value);
+        Task <bool> Approve(int id);
+        Task<bool> Exist(string idCard);
+        Task<object> GetAllUsers();
+        Task<bool> DeateTheUser(string userName);
     }
 }

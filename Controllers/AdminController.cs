@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using expertglobal.Data;
+using expertglobal.Model;
 using expertglobal.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,16 +17,16 @@ namespace expertglobal.Controllers
     {
         private readonly DataDbContext _db;
         private AuthClientInterface _clientService;
-        private readonly UserManager<IdentityUser> _um;
-        private readonly SignInManager<IdentityUser> _sm;
+        private readonly UserManager<UserBio> _um;
+        private readonly SignInManager<UserBio> _sm;
         private readonly RoleManager<IdentityRole> _rm;
-        private readonly IPasswordHasher<IdentityUser> _ih;
+        private readonly IPasswordHasher<UserBio> _ih;
 
         public AdminController(AuthClientInterface _clientService,
-            UserManager<IdentityUser> _um,
-            SignInManager<IdentityUser> _sm,
+            UserManager<UserBio> _um,
+            SignInManager<UserBio> _sm,
             RoleManager<IdentityRole> _rm,
-            IPasswordHasher<IdentityUser> _ih,
+            IPasswordHasher<UserBio> _ih,
             DataDbContext _db)
         {
             this._clientService = _clientService;
@@ -72,12 +73,20 @@ namespace expertglobal.Controllers
         {
             try
             {
-                var result =  await _clientService.Approve(id);
-                return Ok();
+                bool result =  await _clientService.Approve(id);
+                if (result == true)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return StatusCode(500);
+                }
+              
             }
             catch (Exception ex)
             {
-                throw;
+                
                 return StatusCode(500);
             }
         }
@@ -96,6 +105,38 @@ namespace expertglobal.Controllers
             }
 
             return Ok(new { date = "roles created" });
+        }
+        [HttpPost("register-user")]
+        public async Task< IActionResult> RegUser([FromBody] User value)
+        {
+            try
+            {
+                bool result = await _clientService.RegUser(value);
+                if (result == true)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return StatusCode(404);
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
+        [HttpGet("get-user")]
+        public  async Task<IActionResult> GetUsers()
+        {
+            try
+            {
+                return Ok( await _clientService.GetAllUsers());
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
         }
     }
 }

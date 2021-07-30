@@ -68,5 +68,26 @@ namespace expertglobal.Controllers
         public void Delete(int id)
         {
         }
+
+        [HttpGet("chek/{idcard}")]
+        public async Task<IActionResult> ChekExist([FromRoute]string idcard)
+        {
+            try
+            {
+                bool result = await _clientService.Exist(idcard);
+                if (result == true)
+                {
+                    return Ok(new { data = 1 });
+                }
+                else
+                {
+                    return Ok(new { data = 0 });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
     }
 }

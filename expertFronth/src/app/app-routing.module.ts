@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { ClientComponent } from './client/client.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { CustomerPortalComponent } from './customer-portal/customer-portal.component';
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
@@ -15,6 +16,7 @@ import { PartnersComponent } from './partners/partners.component';
 import { RegisterComponent } from './register/register.component';
 import { ServiceComponent } from './service/service.component';
 import { StaffManagmentComponent } from './staff-managment/staff-managment.component';
+import { VendorComponent } from './vendor/vendor.component';
 
 const routes: Routes = [
   {
@@ -39,7 +41,9 @@ const routes: Routes = [
       {path:"notification",component:NotificationComponent},
       {path:"customer-reg",component:CustomerRegistrationComponent},
       {path:"staff-managment",component:StaffManagmentComponent},
-      {path:"inquery",component:InqueryComponent}
+      {path:"inquery",component:InqueryComponent},
+      {path:"vendor",component:VendorComponent},
+      {path:"client",component:ClientComponent}
     ]
   },
 ];

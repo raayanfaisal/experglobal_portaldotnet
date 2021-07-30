@@ -22,12 +22,14 @@ login(){
   }
   this.logService.authUser(data).subscribe((data:any)=>{
     console.log(data);
-    if (data.token != "") {
+    
       localStorage.setItem("name", data.user);
       localStorage.setItem("token", data.token);
+      localStorage.setItem("roles",data.roles);
+      localStorage.setItem("idcard",data.iDcard);
       
       this.route.navigate(["/portal"]);
-    }}
+    }
   ,(err)=>{
     alert("can not login")
   })

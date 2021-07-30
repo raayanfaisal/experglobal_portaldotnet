@@ -16,23 +16,23 @@ namespace expertglobal.Services
     {
         private readonly DataDbContext _db;
 
-        private readonly UserManager<IdentityUser> _um;
-        private readonly SignInManager<IdentityUser> _sm;
+        private readonly UserManager<UserBio> _um;
+        private readonly SignInManager<UserBio> _sm;
         private readonly RoleManager<IdentityRole> _rm;
-        private readonly IPasswordHasher<IdentityUser> _ih;
-        IPasswordHasher<IdentityUser> _hasher;
+        private readonly IPasswordHasher<UserBio> _ih;
+        IPasswordHasher<UserBio> _hasher;
         private IConfiguration _config;
 
 
 
         public AutherUserService(
            
-             IPasswordHasher<IdentityUser> _hasher,
+             IPasswordHasher<UserBio> _hasher,
              IConfiguration config,
-             UserManager<IdentityUser> _um,
-             SignInManager<IdentityUser> _sm,
+             UserManager<UserBio> _um,
+             SignInManager<UserBio> _sm,
              RoleManager<IdentityRole> _rm,
-             IPasswordHasher<IdentityUser> _ih,
+             IPasswordHasher<UserBio> _ih,
              DataDbContext _db)
         {
 
@@ -95,15 +95,17 @@ namespace expertglobal.Services
                         _db.SaveChanges();
 
 
-                        var tokenModel = new TokenModel
+                        return new TokenModel
                         {
                             
                             Roles = CRoles,
                             Token = new JwtSecurityTokenHandler().WriteToken(token),
-                            User = value.UserName
+                            User = user.FullName,
+                            IDcard = value.UserName
+                             
                         };
 
-                        return token;
+                       
 
                     }
                 }
