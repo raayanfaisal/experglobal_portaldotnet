@@ -70,7 +70,8 @@ namespace expertglobal
             services.AddTransient<AuthClientInterface, CleintManageService>();
             services.AddTransient<InqueryInterface, InqueryService>();
             services.AddTransient<SecurityInterface, AutherUserService>();
-            services.AddTransient<VendorInterface, VendorService>();
+            services.AddTransient<VendorInterface,VendorService>();
+            services.AddTransient<CustomerInterface,CustomerService>();
             services.AddCors();
 
         }

@@ -29,6 +29,8 @@ import { InqueriesService } from './inqueries.service';
 import { VendorComponent } from './vendor/vendor.component';
 import { VendorService } from './vendor.service';
 import { ClientComponent } from './client/client.component';
+import { CustomerService } from './customer.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,14 +60,16 @@ import { ClientComponent } from './client/client.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     UrlLinkService,
     RegistrationService,
     LoginService,
     InqueriesService,
-    VendorService
+    VendorService,
+    CustomerService
   ],
   bootstrap: [AppComponent]
 })

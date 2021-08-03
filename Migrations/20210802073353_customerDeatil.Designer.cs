@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using expertglobal.Data;
 
 namespace expertglobal.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    partial class DataDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210802073353_customerDeatil")]
+    partial class customerDeatil
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -206,16 +208,7 @@ namespace expertglobal.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("Address")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<string>("AssignTo")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("ContactNumber")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("CustomerIdOld")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("CustomerName")
@@ -230,19 +223,10 @@ namespace expertglobal.Migrations
                     b.Property<string>("Discription")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<string>("IDard")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("InquStatus")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("InqueryId")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Type")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");

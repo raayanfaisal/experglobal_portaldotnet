@@ -1,0 +1,10 @@
+div a{
+    color: white;
+}
+.no-shadows {
+    box-shadow: none!important;
+}
+.smallWidth{
+    width: 20px;
+}
+ 

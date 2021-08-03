@@ -13,4 +13,7 @@ export class InqueriesService {
   postNewInquery(data){
     return this.http.post(`${this.url.link}Inquery`,data);
   }
+  getInquery(){
+    return this.http.get(`${this.url.link}inquery`);
+  }
 }

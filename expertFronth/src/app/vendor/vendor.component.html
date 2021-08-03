@@ -3,10 +3,20 @@
     <h5>Vendor</h5>
 
     <hr />
+    <i class="material-icons" style="position: absolute;
+    top: 15px;
+    color: #c3966e;
+    right: 484px; vertical-align: bottom">search</i>
+    <input [(ngModel)]="filter" style="    position: absolute;
+    border-radius: 10px;
+    top: 2px;
+    padding-left: 40px;
+    width: 354px;
+    right: 129px;background-color: #0000000a; " type="text" name="" id="" class="text-black">
     <button
-      class="btn #fafafa grey waves-effect modal-trigger"
+      class="btn no-shadows btn #fafafa N/A transparent z-depth-0  waves-effect modal-trigger"
       href="#modal1"
-      style="position: absolute; top: 10px; right: 10px"
+      style="position: absolute; top: 10px; right: 10px;color: #c3966e;"
     >
       <i style="vertical-align: bottom" class="material-icons">add</i>New vendor
     </button>
@@ -28,7 +38,7 @@
     <tbody>
       <tr
         *ngFor="
-          let x of collection | paginate: { itemsPerPage: 10, currentPage: p }
+          let x of collection | paginate: { itemsPerPage: 10, currentPage: p }|filter:filter
         "
       >
         <td>{{ x.oldKey }}</td>
@@ -53,29 +63,30 @@
     <hr />
     <div class="row">
       <div class="col s12">
-        <input [(ngModel)]="vendorId" placeholder="Inquery ID " type="text" />
+        <input [(ngModel)]="vendorId" placeholder="Inquery ID " type="text" style=" padding-left:12px;color: black;" />
       </div>
       <div class="col s12">
-        <input placeholder="company" [(ngModel)]="company" type="text" />
+        <input placeholder="company" [(ngModel)]="company" type="text" style=" padding-left:12px" />
       </div>
       <div class="col s12">
-        <input placeholder="Department" [(ngModel)]="department" type="text" />
+        <input placeholder="Department" [(ngModel)]="department" type="text" style=" padding-left:12px" />
       </div>
       <div class="col s12">
-        <input placeholder="Name" [(ngModel)]="name" type="text" />
+        <input placeholder="Name" [(ngModel)]="name" type="text" style=" padding-left:12px" />
       </div>
       <div class="col s6">
-        <input placeholder="Contact Email" [(ngModel)]="email" type="text" />
+        <input placeholder="Contact Email" [(ngModel)]="email" type="text" style=" padding-left:12px" />
       </div>
       <div class="col s6">
-        <input placeholder="Contact Number" [(ngModel)]="number" type="text" />
+        <input placeholder="Contact Number" [(ngModel)]="number" type="text" style=" padding-left:12px;color: black;" />
       </div>
     </div>
   </div>
   <div class="modal-footer">
     <button
+    style="color: #c3966e;"
       href="#!"
-      class="btn modal-close waves-effect #9e9e9e grey"
+      class="btn modal-close waves-effect  N/A transparent z-depth-0"
       (click)="registerVendor()"
     >
       Submit

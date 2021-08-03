@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using expertglobal.Model;
 using expertglobal.Services;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,16 +11,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace expertglobal.Controllers
 {
     [Route("api/[controller]")]
-    public class InqueryController : Controller
+    public class CustomerController : Controller
     {
-        private readonly InqueryInterface _inqueryservice;
+        private readonly CustomerInterface _customerService;
 
-        
-
-        public InqueryController(InqueryInterface _inqueryservice )
+        public CustomerController(CustomerInterface _customerService)
         {
-            this._inqueryservice = _inqueryservice;
-            
+            this._customerService = _customerService;
         }
         // GET: api/values
         [HttpGet]
@@ -29,35 +25,39 @@ namespace expertglobal.Controllers
         {
             try
             {
-                return Ok(new { data = _inqueryservice.Get() });
+                return Ok(new { data = _customerService.Get() });
             }
             catch (Exception ex)
             {
-                throw;
                 return StatusCode(500);
             }
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            try
+            {
+                return Ok(new { data = _customerService.Get(id) });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
         }
 
         // POST api/values
         [HttpPost]
-        public ActionResult Post([FromBody] Inquery value)
+        public IActionResult Post([FromBody] CustomerDetail value)
         {
             try
             {
-                value.Date = DateTime.Now;
-                _inqueryservice.Post(value);
+                _customerService.Post(value);
                 return Ok();
             }
             catch (Exception ex)
             {
-                throw;
                 return StatusCode(500);
             }
         }
@@ -73,12 +73,12 @@ namespace expertglobal.Controllers
         public void Delete(int id)
         {
         }
-        [HttpGet("get-client-inqueries")]
-        public IActionResult GetClientOwnInquery([FromRoute]string idcard)
+        [HttpGet("get-customer-info/{id}")]
+        public IActionResult GetCustomerDeatil([FromRoute]int id)
         {
             try
             {
-                return Ok();
+                return Ok(_customerService.GetCustomerId(id) );
             }
             catch (Exception ex)
             {

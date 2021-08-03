@@ -3,13 +3,30 @@
     <h5>Inqueries</h5>
 
     <hr />
-    <button
-      class="btn #fafafa grey waves-effect modal-trigger"
-      href="#modal1"
-      style="position: absolute; top: 10px; right: 10px"
-    >
+    <i class="material-icons" style="position: absolute;
+    top: 15px;
+    color: #c3966e;
+    right: 691px; vertical-align: bottom">search</i>
+    <input [(ngModel)]="filter" style="    position: absolute;
+    border-radius: 10px;
+    top: 2px;
+    padding-left: 40px;
+    width: 354px;
+    right: 337px;background-color: #0000000a; " type="text" name="" id="">
+    <button class="no-shadows btn #fafafa N/A transparent z-depth-0 waves-effect modal-trigger" href="#modal1"
+      style="position: absolute; top: 10px; right: 10px;color: #c3966e;">
       <i style="vertical-align: bottom" class="material-icons">add</i>New
       inquery
+    </button>
+    <button class="no-shadows btn #fafafa N/A transparent z-depth-0 waves-effect modal-trigger" href="#modal2"
+      style="position: absolute; top: 10px; right: 146px;color: #c3966e;">
+      <i style="vertical-align: bottom" class="material-icons">filter_list</i>Filter
+
+    </button>
+    <button class="no-shadows btn #fafafa N/A transparent z-depth-0 waves-effect modal-trigger" href="#modal1"
+      style="position: absolute; top: 10px; right: 234px;color: #c3966e;">
+      <i style="vertical-align: bottom" class="material-icons">sort</i>Sort
+
     </button>
   </div>
 </div>
@@ -19,22 +36,37 @@
       <thead>
         <tr>
           <th>InQ Id</th>
-          <th>Customer IDcard</th>
-          <th>Customer Name</th>
-          <th>Disription</th>
-          <th>Catogaries</th>
-          <th>Date</th>
-          <th>Assign To</th>
-          <th>Cus Status</th>
-          <th>Inq Status</th>
-          <th>Action</th>
+          <th>CUSD ID</th>
+          <th>CUSTOMER</th>
+         
+          <th>DISCRIPTION</th>
+          <th>CATOGARIES</th>
+          <th>DATE</th>
+          <th>ASSIGNED TO</th>
+          <th>CUST STATUS</th>
+          <th>INQ STATUS</th>
+          <th>ACTION</th>
         </tr>
       </thead>
 
       <tbody>
-        <tr></tr>
+        <tr   *ngFor="
+        let x of collection | paginate: { itemsPerPage: 10, currentPage: p }| filter:filter
+      ">
+
+<td>{{x.inqueryId}}</td>
+<td>{{x.customerIdOld}}</td>
+<td>{{x.customerName}}</td>
+<td>{{x.discription}}</td>
+<td>{{x.type}}</td>
+<td>{{x.date |date:('dd/MM/yyy')}}</td>
+<td>{{x.assignTo}}</td>
+<td>{{x.customertStatus}}</td>
+<td>{{x.inquStatus}}</td>
+        </tr>
       </tbody>
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>
 <!-- Modal Structure -->
@@ -44,129 +76,103 @@
     <hr />
     <div class="row">
       <div class="col s4">
-        
-        <input placeholder="Inquery ID"
-          [(ngModel)]="discription"
-     
-          type="text"
-        />
+
+        <input placeholder="Inquery ID" [(ngModel)]="iqueryId" type="text" />
       </div>
       <div class="col s4">
-     
-        <input
-        placeholder="Customer ID "
-          [(ngModel)]="discription"
-    
-          type="text"
-        />
+
+        <input (change)="customerChange()" placeholder="Customer ID " [(ngModel)]="customerId" type="text" />
       </div>
       <div class="col s4">
-       
-        <input
-        placeholder="Date"
-          [(ngModel)]="discription"
-      type="date"
-        />
+
+        <input placeholder="Date" [(ngModel)]="date" type="date" />
       </div>
       <div class="col s12">
-       
-        <input
-        placeholder="Customer"
-          [(ngModel)]="discription"
-       
-          type="text"
-        />
+
+        <input placeholder="Customer" [(ngModel)]="customer" type="text" />
       </div>
       <div class="col s12">
-   
-        <input
-        placeholder="Name"
-          [(ngModel)]="discription"
-      
-          type="text"
-        />
+
+        <input placeholder="Name" [(ngModel)]="name" type="text" />
       </div>
       <div class="col s12">
-       
-        <input
-        placeholder="Address"
-          [(ngModel)]="discription"
-         
-          type="text"
-        />
+
+        <input placeholder="Address" [(ngModel)]="address" type="text" />
       </div>
       <div class="col s6">
-      
-        <input
-        placeholder="Contect Email"
-          [(ngModel)]="discription"
-        
-          type="text"
-        />
+
+        <input placeholder="Contect Email" [(ngModel)]="email" type="text" />
       </div>
       <div class="col s6">
-        
-        <input
-        placeholder="Contact Number "
-          [(ngModel)]="discription"
-       
-          type="text"
-        />
+
+        <input placeholder="Contact Number " [(ngModel)]="cnum" type="text" />
       </div>
       <div class="col s12">
-        
-        <input
-        placeholder="Assignee"
-          [(ngModel)]="discription"
-     
-        
-          type="text"
-        />
+
+        <input placeholder="Assignee" [(ngModel)]="asign" type="text" />
       </div>
       <div class="col s12">
-      
-        <input
-        placeholder="Discription"
-          [(ngModel)]="discription"
-       
-          type="text"
-        />
+
+        <input placeholder="Discription" [(ngModel)]="discription" type="text" />
       </div>
       <div class="col m12">
-        <button class="btn #fafafa grey waves-effect modal-trigger">Gurdening Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Chemical Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Laundary Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Watersports Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Construction Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Indoor sports Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Watersports Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Enginering Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Lighting Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Kichen Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">F & B Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Festival Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Liner Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Refrigination Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Plumbing Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Outdoor sports Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">IT Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Painting Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Watersports Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Watersports Items</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Room & Home Appliance</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">FUrnitur & Fittings</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">FUrnitur & Fittings</button>
-        <button class="btn #fafafa grey waves-effect modal-trigger">Power Tools</button>
+        <button    (click)="typeClick($event)"  id="Gurdening Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Gurdening Items</button>
+        <button  (click)="typeClick($event)"  id="Chemical Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Chemical Items</button>
+        <button  (click)="typeClick($event)" id="Laundary Items"  class="btn #607d8b blue-grey waves-effect modal-trigger">Laundary Items</button>
+        <button  (click)="typeClick($event)"  id="Construction Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Construction Items</button>
+        <button  (click)="typeClick($event)"  id="Indoor sports Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Indoor sports Items</button>
+        <button  (click)="typeClick($event)"  id="Enginering Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Enginering Items</button>
+        <button  (click)="typeClick($event)"  id="Lighting Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Lighting Items</button>
+        <button  (click)="typeClick($event)"  id="Kichen Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Kichen Items</button>
+        <button  (click)="typeClick($event)"  id="F & B Items" class="btn #607d8b blue-grey waves-effect modal-trigger">F & B Items</button>
+        <button  (click)="typeClick($event)"  id="Festival Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Festival Items</button>
+        <button  (click)="typeClick($event)"  id="Liner Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Liner Items</button>
+        <button  (click)="typeClick($event)"  id="Refrigination Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Refrigination Items</button>
+        <button  (click)="typeClick($event)"   id="Plumbing Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Plumbing Items</button>
+        <button  (click)="typeClick($event)"  id="Outdoor sports Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Outdoor sports Items</button>
+        <button  (click)="typeClick($event)"  id="IT Items" class="btn #607d8b blue-grey waves-effect modal-trigger">IT Items</button>
+        <button  (click)="typeClick($event)"  id="Painting Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Painting Items</button>
+        <button  (click)="typeClick($event)"  id="Watersports Items" class="btn #607d8b blue-grey waves-effect modal-trigger">Watersports Items</button>
+        <button  (click)="typeClick($event)"  id="Room & Home Appliance" class="btn #607d8b blue-grey waves-effect modal-trigger">Room & Home Appliance</button>
+        <button  (click)="typeClick($event)"  id="Furnitur & Fittings" class="btn #607d8b blue-grey waves-effect modal-trigger">Furnitur & Fittings</button>
+        <button  (click)="typeClick($event)"  id="Power Tools" class="btn #607d8b blue-grey waves-effect modal-trigger">Power Tools</button>
 
       </div>
     </div>
   </div>
   <div class="modal-footer">
-    <button
-      href="#!"
-      class="btn modal-close waves-effect waves-green #a1887f brown lighten-2"
-      (click)="postNewInqu()"
-    >
+    <button href="#!" class=" N/A transparent z-depth-0  btn modal-close waves-effect " style="color: #c3966e;" (click)="postNewInqu()">
+      Submit
+    </button>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal2" class="modal" style=" padding-right: 41px;padding-left: 41px;">
+  <div class="modal-content">
+    <h5>Filter</h5>
+   <h6>Customer Status</h6>
+    <button class="btn #607d8b blue-grey" style="margin: 2.5px;">N/A</button>
+    <button class="btn #607d8b blue-grey" style="margin: 2.5px;">ON HOLD</button>
+    <button class="btn #607d8b blue-grey" style="margin: 2.5px;">REJECTED</button>
+    <button class="btn #607d8b blue-grey" style="margin: 2.5px;">APPROVED</button>
+    <button class="btn #607d8b blue-grey" style="margin: 2.5px;">ACCEPTED</button>
+
+    <hr>
+    <h6>Inquery Status</h6>
+    <button class="btn #607d8b blue-grey" style="margin: 2.5px;">N/A</button>
+    <button class="btn #607d8b blue-grey" style="margin: 2.5px;">PRICING</button>
+    <button class="btn #607d8b blue-grey" style="margin: 2.5px;">SENT</button>
+    <button class="btn #607d8b blue-grey" style="margin: 2.5px;">SHIPPED</button>
+    <button class="btn #607d8b blue-grey" style="margin: 2.5px;">ON HAND</button>
+    <button class="btn #607d8b blue-grey" style="margin: 2.5px;">DELIVERED</button>
+    <button class="btn #607d8b blue-grey" style="margin: 2.5px;">PENDING</button>
+
+    <button class="btn #607d8b blue-grey" style="margin: 2.5px;">CLOSED</button>
+
+  </div>
+  <div class="modal-footer">
+    <button href="#!" class="btn modal-close waves-effect waves-green #a1887f brown lighten-2" (click)="postNewInqu()">
       Submit
     </button>
   </div>

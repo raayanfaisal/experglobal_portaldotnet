@@ -91,5 +91,17 @@ namespace expertglobal.Controllers
                 return StatusCode(500);
             }
         }
+        [HttpGet("get-vendor-data/{id}")]
+        public IActionResult GetVendoReg([FromRoute] string id)
+        {
+            try
+            {
+                return Ok(new { data = _vendorService.GetVenderId(id) });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
     }
 }

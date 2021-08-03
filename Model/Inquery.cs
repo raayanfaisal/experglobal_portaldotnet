@@ -16,5 +16,11 @@ namespace expertglobal.Model
         public string Action { get; set; }
         public bool Active { get; set; }
         public string CustomerName { get; set; }
+        public string InqueryId { get; set; }
+        public string Email { get; set; }
+        public string Address { get; set; }
+        public string ContactNumber { get; set; }
+        public string Type { get; set; }
+        public string CustomerIdOld { get; set; }
     }
 }

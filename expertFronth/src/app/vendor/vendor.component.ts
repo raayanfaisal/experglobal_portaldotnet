@@ -16,6 +16,7 @@ email:string;
 number:string;
 p: number = 1;
 collection: any[];
+filter;
   constructor( private readonly VendorServicePro:VendorService) { }
 
   ngOnInit(): void {

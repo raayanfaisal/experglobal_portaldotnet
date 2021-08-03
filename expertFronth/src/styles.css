@@ -1,17 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 button{
-    margin: 2px;
+  margin: 2.5px;
 }
-/*** !important was needed for snippet ***/
 
+a {
+  color: white;
+}
 
-
-/* label focus color */
-.input-field input:focus + label {
-    color: red !important;
+  /* label color */
+  .input-field label {
+    color: #000;
   }
-  /* label underline focus color */
-  .row .input-field input:focus {
-    border-bottom: 1px solid red !important;
-    box-shadow: 0 1px 0 0 red !important
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #000;
   }
+  .input-field [type=text] {
+    color: black;
+}

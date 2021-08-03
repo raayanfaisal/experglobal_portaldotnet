@@ -5,10 +5,11 @@ using expertglobal.Model;
 
 namespace expertglobal.Services
 {
-    public class VendorService: VendorInterface
+    public class CustomerService: CustomerInterface
     {
         private readonly DataDbContext _db;
-        public VendorService(DataDbContext _db)
+
+        public CustomerService(DataDbContext _db)
         {
             this._db = _db;
         }
@@ -17,12 +18,13 @@ namespace expertglobal.Services
         {
             try
             {
-                var del = new Vendor
+                var result = new CustomerDetail
                 {
-                    Id = id
+                    Id = id,
                 };
-                _db.Vendors.Remove(del);
+                _db.CustomerDetails.Remove(result);
                 _db.SaveChanges();
+
             }
             catch (Exception ex)
             {
@@ -34,7 +36,7 @@ namespace expertglobal.Services
         {
             try
             {
-                return _db.Vendors.ToList();
+                return _db.CustomerDetails.ToList();
             }
             catch (Exception ex)
             {
@@ -46,7 +48,7 @@ namespace expertglobal.Services
         {
             try
             {
-                return _db.Vendors.Find(id);
+                return _db.CustomerDetails.Find(id);
             }
             catch (Exception ex)
             {
@@ -54,23 +56,22 @@ namespace expertglobal.Services
             }
         }
 
-        public object GetVenderId(string id)
+        public object GetCustomerId(int id)
         {
             try
             {
-                return _db.Vendors.Where(x => x.OldKey == id).FirstOrDefault();
+                return _db.CustomerDetails.Where(x => x.OldId == id.ToString()).FirstOrDefault();
             }
             catch (Exception ex)
             {
                 throw;
             }
         }
-
-        public void Post(Vendor value)
+        public void Post(CustomerDetail value)
         {
             try
             {
-                _db.Vendors.Add(value);
+                _db.CustomerDetails.Add(value);
                 _db.SaveChanges();
             }
             catch (Exception ex)
@@ -79,28 +80,15 @@ namespace expertglobal.Services
             }
         }
 
-        public void Put(int id, Vendor value)
+        public void Put(int id, CustomerDetail value)
         {
             try
             {
-                var result = _db.Vendors.Find(id);
-                if (value.Email.Length >0)
-                {
-                    result.Email = value.Email;
-                }
-                if (value.ContactNumber.Length>0)
-                {
-                    result.ContactNumber = value.ContactNumber;
-                }
-                if (value.Name.Length > 0)
-                {
-                    result.Name = value.Name;
-                }
-                _db.SaveChanges();
+                
             }
             catch (Exception ex)
             {
-                throw;
+
             }
         }
     }
