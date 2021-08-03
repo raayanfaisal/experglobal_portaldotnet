@@ -32,7 +32,7 @@ namespace expertglobal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = "server=localhost;user=root;database=expert";
+            var connectionString = "server=localhost;user=root;database=expert...";
             services.AddControllers()
                  .AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore

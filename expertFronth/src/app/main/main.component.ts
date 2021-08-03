@@ -28,7 +28,7 @@ login(){
       localStorage.setItem("roles",data.roles);
       localStorage.setItem("idcard",data.iDcard);
       
-      this.route.navigate(["/portal"]);
+      this.route.navigate(["/portal/inquery"]);
     }
   ,(err)=>{
     alert("can not login")
