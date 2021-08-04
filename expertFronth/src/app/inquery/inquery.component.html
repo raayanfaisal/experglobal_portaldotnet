@@ -45,7 +45,7 @@
           <th>ASSIGNED TO</th>
           <th>CUST STATUS</th>
           <th>INQ STATUS</th>
-          <th>ACTION</th>
+          <th class="center-align">ACTION</th>
         </tr>
       </thead>
 
@@ -63,6 +63,14 @@
 <td>{{x.assignTo}}</td>
 <td>{{x.customertStatus}}</td>
 <td>{{x.inquStatus}}</td>
+<td class="center-align">
+  <i style="vertical-align: inherit;" class="material-icons Small"> arrow_drop_down remove_red_eye</i>
+<button class="no-shadows btn #fafafa N/A transparent z-depth-0 ">
+  <i  [routerLink] = "['../action',x.id]" style="vertical-align: inherit;color: black;" class=" material-icons Small ">add</i>
+
+</button>
+  <span style="font-weight: bolder;">...</span>
+</td>
         </tr>
       </tbody>
     </table>

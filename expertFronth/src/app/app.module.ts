@@ -31,6 +31,7 @@ import { VendorService } from './vendor.service';
 import { ClientComponent } from './client/client.component';
 import { CustomerService } from './customer.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ActionComponent } from './action/action.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     InqueryComponent,
     VendorComponent,
     ClientComponent,
+    ActionComponent,
     
   ],
   imports: [

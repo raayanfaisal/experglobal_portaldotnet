@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { ActionComponent } from './action/action.component';
 import { ClientComponent } from './client/client.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { CustomerPortalComponent } from './customer-portal/customer-portal.component';
@@ -43,7 +44,8 @@ const routes: Routes = [
       {path:"staff-managment",component:StaffManagmentComponent},
       {path:"inquery",component:InqueryComponent},
       {path:"vendor",component:VendorComponent},
-      {path:"client",component:ClientComponent}
+      {path:"client",component:ClientComponent},
+      {path:"action/:id",component:ActionComponent}
     ]
   },
 ];
