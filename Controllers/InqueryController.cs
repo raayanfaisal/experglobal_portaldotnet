@@ -33,16 +33,23 @@ namespace expertglobal.Controllers
             }
             catch (Exception ex)
             {
-                throw;
+               
                 return StatusCode(500);
             }
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            try
+            {
+                return Ok(_inqueryservice.Get(id));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
         }
 
         // POST api/values

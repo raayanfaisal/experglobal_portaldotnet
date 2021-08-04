@@ -16,5 +16,8 @@ export class InqueriesService {
   getInquery(){
     return this.http.get(`${this.url.link}inquery`);
   }
+  getSpecInquery(data){
+    return this.http.get(`${this.url.link}inquery/${data}`);
+  }
   
 }
