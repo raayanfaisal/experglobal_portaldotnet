@@ -1,16 +1,173 @@
 <div class="row">
-<div class="col m12">
-    <h5 style="font-weight: bolder;">{{info.inqueryId}}</h5>
+  <div class="col m12">
+    <h5 style="font-weight: bolder">{{ info.inqueryId }}</h5>
+  </div>
+  <i class="material-icons" style="position: absolute;
+  top: 15px;
+  color: #c3966e;
+  right: 691px; vertical-align: bottom">search</i>
+  <input  [(ngModel)]="fileter" style="    position: absolute;
+  border-radius: 10px;
+  top: 7px;
+  padding-left: 40px;
+  width: 354px;
+  right: 337px;background-color: #0000000a; " type="text" name="" id="">
+  <button class="no-shadows btn #fafafa N/A transparent z-depth-0 waves-effect modal-trigger" href="#modal1"
+    style="position: absolute; top: 10px; right: 10px;color: #c3966e;">
+    <i style="vertical-align: bottom" class="material-icons">add</i>New
+    vendor
+  </button>
+  <button class="no-shadows btn #fafafa N/A transparent z-depth-0 waves-effect modal-trigger" href="#modal2"
+    style="position: absolute; top: 10px; right: 146px;color: #c3966e;">
+    <i style="vertical-align: bottom" class="material-icons">filter_list</i>Filter
+
+  </button>
+  <button class="no-shadows btn #fafafa N/A transparent z-depth-0 waves-effect modal-trigger" href="#modal1"
+    style="position: absolute; top: 10px; right: 234px;color: #c3966e;">
+    <i style="vertical-align: bottom" class="material-icons">sort</i>Sort
+
+  </button>
 </div>
+<div class="row" style="margin-bottom: 10px;">
+  <div class="col m6">
+    <table style="border-collapse: unset">
+      <tbody>
+        <tr style="padding: 0px">
+          <td style="padding: 0px">Customer ID</td>
+          <td style="padding: 0px">{{ info.customerIdOld }}</td>
+          <td style="padding: 0px">Discription</td>
+          <td style="padding: 0px">{{ info.type }}</td>
+        </tr>
+        <tr>
+          <td style="padding: 0px">Customer</td>
+          <td style="padding: 0px">{{ info.customerF }}</td>
+        </tr>
+        <tr>
+          <td style="padding: 0px">Customer Name</td>
+          <td style="padding: 0px">{{ info.customerName }}</td>
+        </tr>
+        <tr>
+          <td style="padding: 0px">Address</td>
+          <td style="padding: 0px">{{ info.address }}</td>
+        </tr>
+        <tr>
+          <td style="padding: 0px">Email</td>
+          <td style="padding: 0px">{{ info.email }}</td>
+        </tr>
+        <tr>
+          <td style="padding: 0px">Contact</td>
+          <td style="padding: 0px">{{ info.contactNumber }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-<div class="row">
-    <div class="col m3">
-        <table>
-            <tbody>
-                <tr>
-                    
-                </tr>
-            </tbody>
-        </table>
+<div class="" *ngFor = "let x of vendorInquery | filter:fileter">
+  <div class="row" style="background-color: black">
+    <div class="col m1">
+      <p style="color: white">ID :{{x.id}}</p>
     </div>
+    <div class="col m">
+      <p style="color: white">Company :{{x.vendor.company}}</p>
+    </div>
+    <div class="col m">
+      <p style="color: white">Name :{{x.vendor.name}}</p>
+    </div>
+    <div class="col m">
+      <p style="color: white">Email :{{x.vendor.email}}</p>
+    </div>
+    <div class="col m">
+      <p style="color: white">Contact :{{x.vendor.contactNumber}}</p>
+    </div>
+    <div class="col m" >
+      <i class="material-icons" style="color: red;vertical-align: bottom;margin-top: 12px;">lock</i>
+      <span style="color: white;">Approved</span>
+    </div>
+    <div class="col m" >
+      <i class="material-icons" style="color: white;vertical-align: bottom;margin-top: 12px;">add</i>
+      <i class="material-icons" style="color: white;vertical-align: bottom;margin-top: 12px;">create</i>
+      <i class="material-icons" style="color: white;vertical-align: bottom;margin-top: 12px;">delete</i>
+      <i class="material-icons" style="color: white;vertical-align: bottom;margin-top: 12px;">arrow_drop_up</i>
+    
+    </div>
+  </div>
+  <div class="row" style="background-color: whitesmoke;">
+      <table>
+          <tr id="cost">
+              <td>
+               ITEM DETAILS
+              </td>
+              <td>
+                QTY
+                 </td>
+                 <td>
+                     UNIT EXW F/C
+                 </td>
+                 <td>
+                  TTL EXW F/C
+              </td>
+              <td>
+                  UNIT EXW 
+              </td>
+              <td>
+                  TTL EXW 
+              </td>
+              <td>
+                  FRT. %
+              </td>
+              <td>
+                  FRT. AMNT
+              </td>
+              <td>
+                  FRT. TTL
+              </td>
+              <td>
+                  DUTY %
+              </td>
+              <td>
+                  DUTY AMOUNT
+              </td>
+              <td>
+                  DUTY TTL
+              </td>
+              <td>
+                  UNIT COST
+              </td>
+          </tr>
+      </table>
+  </div>
 </div>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h6>New Vendor</h6>
+     
+      <div class="row">
+        <div class="col m12">
+          <input  type="text"(change)="onvendorChange()" placeholder="vendor id" [(ngModel)]="vendorOldId">
+        </div>
+        <div class="col m12">
+          <input  type="text" placeholder="company" [(ngModel)]="company" >
+        </div>
+        <div class="col m12">
+          <input  type="text" placeholder="Deapartment" [(ngModel)]="department" >
+        </div>
+        <div class="col m12">
+          <input  type="text" placeholder="Name" [(ngModel)]="name" >
+        </div>
+        <div class="col m6">
+          <input  type="text" placeholder="Contact Email" [(ngModel)]="email"  >
+        </div>
+        <div class="col m6">
+          <input  type="text" placeholder="Contact Number" [(ngModel)]="contactNumber" >
+        </div>
+        <div class="col m12 right-align" style="">
+          <button class="btn modal-close">cancel</button>
+          <button class="btn modal-close" (click)="addVendor()">Add</button>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+          

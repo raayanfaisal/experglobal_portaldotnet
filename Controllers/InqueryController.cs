@@ -33,7 +33,7 @@ namespace expertglobal.Controllers
             }
             catch (Exception ex)
             {
-               
+                throw;
                 return StatusCode(500);
             }
         }
@@ -86,6 +86,32 @@ namespace expertglobal.Controllers
             try
             {
                 return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
+        [HttpPost("post-vendor-inquery-inqu")]
+        public IActionResult AddVendorInquery([FromBody] InqueryVendor value)
+        {
+            try
+            {
+                _inqueryservice.AddVendorInquery(value);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                
+                return StatusCode(500);
+            }
+        }
+        [HttpGet("get-vendor-inq/{id}")]
+        public IActionResult GetVendorInqueryList([FromRoute]int id)
+        {
+            try
+            {
+                return Ok(new { data = _inqueryservice.GetInqueryVendorList(id) });
             }
             catch (Exception ex)
             {

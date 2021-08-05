@@ -16,5 +16,6 @@ namespace expertglobal.Data
         public DbSet<Inquery> Inqueries { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<CustomerDetail> CustomerDetails { get; set; }
+        public DbSet <InqueryVendor> InqueryVendors { get; set; }
     }
 }

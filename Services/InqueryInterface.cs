@@ -10,5 +10,7 @@ namespace expertglobal.Services
         void Post(Inquery value);
         void Put(int id, Inquery value);
         void Delete(int id);
+        void AddVendorInquery(InqueryVendor value);
+        object GetInqueryVendorList(int id);
     }
 }

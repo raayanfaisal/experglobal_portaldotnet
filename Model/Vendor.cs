@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace expertglobal.Model
@@ -13,5 +14,6 @@ namespace expertglobal.Model
         public string Name { get; set; }
         public string Email { get; set; }
         public string ContactNumber { get; set; }
+        public List<InqueryVendor> InqueryVendors { get; set; }
     }
 }

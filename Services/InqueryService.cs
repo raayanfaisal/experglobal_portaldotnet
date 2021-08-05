@@ -2,6 +2,7 @@
 using System.Linq;
 using expertglobal.Data;
 using expertglobal.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace expertglobal.Services
 {
@@ -12,6 +13,19 @@ namespace expertglobal.Services
         public InqueryService(DataDbContext _db)
         {
             this._db = _db;
+        }
+
+        public void AddVendorInquery(InqueryVendor value)
+        {
+            try
+            {
+                _db.InqueryVendors.Add(value);
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public void Delete(int id)
@@ -49,6 +63,18 @@ namespace expertglobal.Services
             try
             {
                 return _db.Inqueries.Find(id);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public object GetInqueryVendorList(int id)
+        {
+            try
+            {
+                return _db.InqueryVendors.Where(x => x.InqueryId == id).Include(x => x.Vendor).Include(x => x.Inquery).ToList();
             }
             catch (Exception ex)
             {

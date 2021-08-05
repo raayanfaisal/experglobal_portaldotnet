@@ -96,7 +96,7 @@ namespace expertglobal.Controllers
         {
             try
             {
-                return Ok(new { data = _vendorService.GetVenderId(id) });
+                return Ok( _vendorService.GetVenderId(id) );
             }
             catch (Exception ex)
             {

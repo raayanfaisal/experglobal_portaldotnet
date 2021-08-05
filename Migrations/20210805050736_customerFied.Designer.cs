@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using expertglobal.Data;
 
 namespace expertglobal.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    partial class DataDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210805050736_customerFied")]
+    partial class customerFied
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -215,9 +217,6 @@ namespace expertglobal.Migrations
                     b.Property<string>("ContactNumber")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("CustomerF")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.Property<string>("CustomerIdOld")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
@@ -251,27 +250,6 @@ namespace expertglobal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Inqueries");
-                });
-
-            modelBuilder.Entity("expertglobal.Model.InqueryVendor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("InqueryId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("VendorId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("InqueryId");
-
-                    b.HasIndex("VendorId");
-
-                    b.ToTable("InqueryVendors");
                 });
 
             modelBuilder.Entity("expertglobal.Model.OnlineClientReg", b =>
@@ -446,21 +424,6 @@ namespace expertglobal.Migrations
                     b.HasOne("expertglobal.Model.UserBio", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("expertglobal.Model.InqueryVendor", b =>
-                {
-                    b.HasOne("expertglobal.Model.Inquery", "Inquery")
-                        .WithMany("InqueryVendors")
-                        .HasForeignKey("InqueryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("expertglobal.Model.Vendor", "Vendor")
-                        .WithMany("InqueryVendors")
-                        .HasForeignKey("VendorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

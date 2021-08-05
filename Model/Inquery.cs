@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace expertglobal.Model
@@ -22,5 +23,7 @@ namespace expertglobal.Model
         public string ContactNumber { get; set; }
         public string Type { get; set; }
         public string CustomerIdOld { get; set; }
+        public string CustomerF { get; set; }
+        public List<InqueryVendor> InqueryVendors { get; set; }
     }
 }
